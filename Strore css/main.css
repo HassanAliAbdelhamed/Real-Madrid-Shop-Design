@@ -1,0 +1,498 @@
+*{
+  margin: 0;
+  font-family:"Cairo";
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+/* Start Global Rules */
+:root{
+  --mainSectionPadding:60px;
+  --mainColor:#609183a1;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+.container{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+@media (min-width: 768px){
+.container {
+    width: 750px;
+}
+}
+@media (min-width: 992px){
+.container {
+    width: 970px;
+}
+}
+@media (min-width: 1200px){
+.container {
+    width: 1140px;
+}
+}
+
+
+.mainHead{
+  margin: 0  auto  ;
+  border: 1px solid transparent;
+  margin-bottom: 100px;
+  width: fit-content;
+  padding: 10px 20px;
+  display: block;
+  font-size: 35px;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0s;
+  z-index: 2;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.mainHead::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background:rgba(140,137,189,0.75);
+  left: -20px;
+  border-radius: 50%;
+  top: 100%;
+  transform: translateY(-50%);
+}
+.mainHead::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: rgba(140,137,189,0.75);
+  right: -20px;
+  border-radius: 50%;
+  top: 0;
+  transform: translateY(-50%);
+  transition: .3s;
+}
+.sponser .mainHead::after{
+  background:black;
+}
+.sponser .mainHead::before{
+  background:black;
+}
+.mainHead:hover::before{
+  animation: rightMove 2s forwards;
+}
+.mainHead:hover::after{
+  animation: leftMove 2s;
+  animation-fill-mode: forwards;
+}
+.mainHead:hover{
+  transition-delay: 1.2s;
+  color: white;
+  border: 1px transparent solid;
+}
+
+/* End Global Rules */
+
+header{
+}
+header .container{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+header .container .logo{
+  display: flex;
+}
+header .container::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(45deg, #6f82a0, transparent);
+  bottom: 10px;
+  left: 0;
+}
+header .container img{
+  max-width: 100%;
+  margin: 20px;
+  height: 70px;
+}
+header .container .list{
+
+}
+header .container .list ul{
+  display: flex;
+  height: 90px;
+  justify-content: center;
+  align-items: center;
+}
+header .container .list i{
+  display: none;
+}
+header .container .list li{
+  height: 77px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width:767px) {
+  header .container .list i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  header .container .list ul{
+    display: none;
+  }
+  header .container .list i:hover + ul{
+    display: block;
+    z-index: 200;
+  }
+  header .container .list i:hover{
+    cursor: pointer;
+  }
+  header .container .list i a{
+    position: relative;
+  }
+  header .container .list ul li a:hover::before {
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
+  header .container .list i:hover + ul{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background:white;
+    height: fit-content;
+  }
+}
+
+header .container .list ul li a{
+  color: #6f82a0;
+  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  position:relative;
+}
+header .container .list ul li a:hover{
+  color: white;
+}
+header .container .list ul li a::before{
+  position: absolute;
+  content: '';
+  width: 0%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #6f82a0, transparent);
+  left: 0;
+  top: 0;
+  transition: .3s;
+  z-index: -1;
+}
+header .container .list ul li a:hover::before{
+  width: 100%;
+}
+/* header in responsive */
+  @media (max-width:767px) {
+    header .container .logo{
+      align-items: center;
+    }
+    header .container img:first-child{
+      width: 70px;
+    }
+    header .container img:last-child{
+      height: 40px;
+    }
+    header .container .list ul li a{
+      font-size: 17px;
+      padding: 10px;
+    }
+
+  }
+/* header in responsive */
+.shopImages{
+  display: flex;
+  justify-content: center;
+  align-items: center;width: 100%;
+  position: relative;
+  flex-direction: row;
+}
+.shopImages .Icons{
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  background: #6f82a0;
+  border-radius: 27%;
+  border-left: 30px solid #609183a1;
+  transition: .3s;
+  overflow: hidden;
+}
+.shopImages .Icons a{
+  padding: 15px;
+  color: white;
+}
+.shopImages .Icons a i{
+    transition: .3s;
+}
+.shopImages .Icons a:first-child i{
+  padding-top: 20px;
+
+}
+.shopImages .Icons a:first-child i:hover{
+  color: blue;
+  font-size: 30px;
+}
+.shopImages .Icons a:nth-child(2) i:hover{
+  color: #8a3ab9;
+  font-size: 30px;
+}
+.shopImages .Icons a:nth-child(3) i:hover{
+  color: red;
+  font-size: 30px;
+}
+.shopImages .Icons a:nth-child(4) i:hover{
+  color: #00acee;
+  font-size: 30px;
+}
+.shopImages .Icons a:last-child i{
+  padding-bottom: 20px;
+}
+
+.shopImages img{
+  max-width: 100%;
+}
+@media (max-width:767px) {
+  .shopImages .Icons a{
+    padding: 10px;
+  }
+  .shopImages .Icons a:first-child i{
+    padding-top: 10px;
+  }
+  .shopImages .Icons a:last-child i{
+    padding-bottom: 10px;
+  }
+  .shopImages .Icons a i{
+    font-size: 15px;
+  }
+    .shopImages .Icons a i:hover{
+      color: blue;
+      font-size: 20px;
+    }
+}
+
+
+
+.home{
+}
+.home .vid{
+  position: relative;
+}
+.home .vid::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(45deg,#6f82a05c,#6f82a082)
+}
+.home .vid video{
+  max-width: 100%;
+  width: 100%;
+}
+.home .vid .Inside{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  z-index: 100;
+}
+.home .vid .Inside img{
+    width: 100px;
+}
+.home .vid .Inside h2{
+  color: white;
+  margin: 20px;
+  font-size: 40px;
+}
+
+
+.shop{
+  width: 100%;
+  padding-top: var(--mainSectionPadding);
+  padding-bottom: var(--mainSectionPadding);
+}
+.shop .container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  grid-gap: 30px;
+}
+
+.shop .container .box{
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+  overflow: hidden;
+  transition: .3s;
+}
+.shop .container .box:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+.shop .container .box .imageHolder{
+  width: 100%;
+  height: 264px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: .4s;
+}
+.shop .container .box .imageHolder:hover{
+  transform: rotateY(-180deg);
+}
+.shop .container .box .imageHolder img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  max-height: 100%;
+  backface-visibility: hidden;
+}
+.shop .container .box .imageHolder img:nth-child(2){
+  position:absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) rotateY(180deg);
+}
+.shop .container .box .text{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.shop .container .box .text::before{
+  position: absolute;
+  content: '';
+  width: 96%;
+  height: 100%;
+  background-color: rgba(140,137,189,0.75);
+  left: 2%;
+  bottom: 0;
+  transform: 0;
+  border-radius: 20px;
+}
+.shop .container .box .text h3{
+  font-size: 30px;
+  position: relative;
+  z-index: 100;
+}
+.shop .container .box .text h3:first-child{
+  color: white;
+}
+.shop .container .box .text h3:last-child{
+  position: relative;
+
+  color: white;
+  cursor: pointer;
+}
+.shop .container .box .text h3:last-child::before{
+  content: '';
+  position: absolute;
+}
+.shop .Sales{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px;
+}
+.shop .Sales h3{
+  font-size: 30px;
+  font-weight: bold;
+}
+.shop .Sales h2{
+  font-size: 25px;
+  text-decoration: line-through;
+}
+
+.sponser{
+  padding-top: 100px;
+  background: #F0F0F0;
+  width: 100%;
+}
+.sponser .container{
+  display: flex;
+  flex-direction: column;
+}
+.sponser .container .Row{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.sponser .container .Row img{
+  padding: 20px;
+  filter: grayscale(100%);
+  width: 100px;
+  transition: .2s;
+}
+@media (max-width:767px) {
+  .sponser .container .Row img{
+    width: 70px;
+    padding: 10px;
+  }
+}
+.sponser .container .Row img:hover{
+  filter: grayscale(0%);
+}
+
+
+
+
+
+
+
+
+@keyframes rightMove {
+  50%{
+    left: 0;
+    width: 10px;
+    height: 10px;
+  }
+  100%{
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: -1;
+  }
+}
+@keyframes leftMove {
+  50%{
+    right: 0;
+    width: 10px;
+    height: 10px;
+  }
+  100%{
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: -1;
+  }
+}
